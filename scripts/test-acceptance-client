@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.."
+
+if [[ $@ == *"--bstack-long-running"* ]]; then
+  PID=$($DIR/scripts/BrowserStackLocal)
+  BUILD=$(date +%s) nightwatch \
+    --retries 3 \
+    --suiteRetries \
+    -c $DIR/test/client/acceptance/browserstack-long-running.js \
+    -e chrome #,firefox,safari,ie,edge
+  kill $PID || true
+elif [[ $@ == *"--bstack"* ]]; then
+  PID=$($DIR/scripts/BrowserStackLocal)
+  BUILD=$(date +%s) nightwatch \
+    --retries 3 \
+    --suiteRetries \
+    -c $DIR/test/client/acceptance/browserstack.js \
+    -e chrome #,firefox,safari,ie,edge
+  kill $PID || true
+else
+  echo 'to run browserstack, pass --bstack'
+  BASE_URL=$BASE_URL babel-node $DIR/test/client/acceptance/nightwatch.js
+fi

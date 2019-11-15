@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+npm run start:client-dev &
+clientPID=$!
+
+# npm run server:watch &
+# watchPID=$!
+
+sleep 1
+
+# npm run server:start &
+# serverPID=$!
+
+trap ctrl_c INT
+
+function ctrl_c() {
+  echo 'killing client...'
+  kill $clientPID
+  echo 'killing watch...'
+  kill $watchPID
+  echo 'killing server...'
+  kill $serverPID
+  exit 0
+}
+
+# keep script up
+tail -f /dev/null

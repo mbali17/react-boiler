@@ -1,0 +1,130 @@
+{
+  "name": "mtgavaformreact",
+  "version": "19.12.0",
+  "description": "AvaForm React",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack -p --optimize-minimize --env.NODE_ENV=production",
+    "build-prod": "webpack --config webpack.prod.js --mode production --env.NODE_ENV=production",
+    "build-dev": "webpack  --config webpack.dev.js --env.NODE_ENV=development",
+    "clear": "rm -rf dist/home && rm -rf dist/main && rm -rf dist/tree-shake",
+    "flow-check": "flow check",
+    "flow-coverage": "flow-coverage-report --threshold 92 -i 'src/**/*.js' -i 'src/**/*.jsx' --collectCoverageFrom=!src/styled/**.* -t html -t json -t text",
+    "lint": "eslint --ext .js --ext .jsx src test scripts",
+    "start": "./scripts/start",
+    "start:client-dev": "webpack-dev-server --mode development --open --hot --env.NODE_ENV=development",
+    "start:client-prod": "webpack-dev-server --mode development --open --hot --env.NODE_ENV=production",
+    "server:start": "node ./server/server.js",
+    "server:watch": "babel src --ignore src/client --watch --out-dir dist --copy-files --source-maps inline",
+    "test": "./scripts/test --env.NODE_ENV=test",
+    "test-suite": "jest test/*/unit test/*/integration --coverage"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [],
+    "coverageThreshold": {
+      "global": {
+        "statements": 0,
+        "branches": 0,
+        "functions": 0,
+        "lines": 0
+      }
+    },
+    "globals": {
+      "window": true,
+      "document": true
+    },
+    "setupFiles": [
+      "<rootDir>/test/jest_setup.js",
+      "<rootDir>/test/jest_shim.js"
+    ],
+    "testURL": "http://localhost:8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://AvalaraDev@github.com/AvalaraDev/MtgAvaFormReact.git"
+  },
+  "keywords": [
+    "Webpack"
+  ],
+  "author": "khippert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AvalaraDev/MtgAvaFormReact/issues"
+  },
+  "homepage": "https://github.com/AvalaraDev/MtgAvaFormReact#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "@babel/register": "^7.6.2",
+    "ajv": "^6.10.2",
+    "autoprefixer": "^9.6.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-async-helpers": "^0.9.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "flatpickr": "^4.6.3",
+    "html-webpack-plugin": "^3.2.0",
+    "isomorphic-fetch": "^2.2.1",
+    "json-loader": "^0.5.7",
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-flatpickr": "^3.9.1",
+    "react-intl-phone3": "^0.2.3",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.3",
+    "redux-thunk": "^2.3.0",
+    "style-loader": "^1.0.0",
+    "styled-components": "^4.4.0",
+    "uuid": "^3.3.3",
+    "webpack": "^4.41.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
+    "compression-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "enzyme-to-json": "^3.4.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "file-loader": "^4.2.0",
+    "flow-bin": "^0.79.1",
+    "flow-coverage-report": "^0.6.1",
+    "flow-typed": "^2.6.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "jest-mock-console": "^1.0.0",
+    "jest-styled-components": "^6.3.3",
+    "jsdom": "^15.1.1",
+    "jsdom-global": "^3.0.2",
+    "nock": "^11.3.5",
+    "nodemon": "^1.19.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "webpack-bundle-analyzer": "^3.5.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  }
+}

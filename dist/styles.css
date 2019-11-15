@@ -1,0 +1,29 @@
+html, body {
+  line-height: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.demo-container {
+  padding: 8px;
+}
+nav {
+  background: #F60;
+  display: flex;
+  flex-direction: flex-start;
+  margin-bottom: 15px;
+  width: 100%;
+}
+nav > a {
+  background: #F60;
+  border: 1px solid #F60;
+  color: #FFF;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+nav > a:hover {
+  background: #FFF;
+  color: #F60;
+  text-decoration: underline;
+}

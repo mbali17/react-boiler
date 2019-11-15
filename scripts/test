@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+VERSION4=$(/usr/bin/env bash --version | grep "version 4")
+VERSION5=$(/usr/bin/env bash --version | grep "version 5")
+
+if [[ -z $VERSION4 ]] && [[ -z $VERSION5 ]]; then
+  echo "Bash version 4 at a minimum is required"
+  exit 1
+fi
+
+npm run test-suite &
+testSuite=$!
+
+#npm run test:acceptance-client &
+#testAC=$!
+
+npm run flow-check &
+flow=$!
+#
+npm run lint &
+lint=$!
+
+trap ctrl_c INT
+
+function ctrl_c() {
+  echo 'killing tests...'
+  kill $testSuite
+  echo 'killing client acceptance tests...'
+  kill $testAC
+  echo 'killing flow checking...'
+  kill $flow
+  echo 'killing linting...'
+  kill $lint
+  exit 0
+}
+
+declare -A pids
+pids=(
+  ["$testSuite"]="Test suite"
+  ["$flow"]="Flow checking"
+  ["$lint"]="Linting"
+)
+
+exitCode=0
+
+for p in "${!pids[@]}"; do
+  # jest will sometimes supress these messages... not a huge deal
+  if wait $p; then
+    echo -e "\033[42;37m${pids[$p]} - SUCCESS\033[0m"
+  else
+    echo -e "\033[41;37m${pids[$p]} - FAIL\033[0m"
+    exitCode=$p
+  fi
+done
+
+exit $exitCode

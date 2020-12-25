@@ -1,7 +1,4 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-ReactDOM.render(
-  <p>Hello World</p>,
-  document.getElementById('root'),
-);
+import FourFieldForm from './components/FourFieldForm'
+ReactDOM.render(<FourFieldForm/>, document.getElementById('root'));

@@ -9,9 +9,6 @@ module.exports = (env) => {
     mode: procesEnv,
     entry: ['@babel/polyfill', './src/index.js'],
     devtool: 'eval-source-map',
-    node: {
-      fs: 'empty',
-    },
     module: {
       rules: [
         {
@@ -24,7 +21,7 @@ module.exports = (env) => {
         },
         {
           test: /\.css$/,
-          loader: 'style-loader!css-loader',
+          use: ['style-loader','css-loader'],
         },
         {
           test: /\.(png|jpg|jpeg|gif)$/,
@@ -35,30 +32,6 @@ module.exports = (env) => {
           use: 'file-loader',
         },
       ],
-    },
-    optimization: {
-      minimize: true,
-      splitChunks: {
-        chunks: 'all',
-        minSize: 30000,
-        maxSize: 0,
-        minChunks: 1,
-        maxAsyncRequests: 5,
-        maxInitialRequests: 3,
-        automaticNameDelimiter: '~',
-        name: true,
-        cacheGroups: {
-          vendors: {
-            test: /[\\/]node_modules[\\/]/,
-            priority: -10,
-          },
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true,
-          },
-        },
-      },
     },
     resolve: {
       extensions: ['*', '.js', '.jsx'],

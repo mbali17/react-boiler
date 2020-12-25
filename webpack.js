@@ -9,9 +9,6 @@ module.exports = (env) => {
     mode: processEnv,
     entry: ['@babel/polyfill', './src/index.js'],
     devtool: 'eval-source-map',
-    node: {
-      fs: 'empty',
-    },
     module: {
       rules: [
         {
@@ -24,7 +21,7 @@ module.exports = (env) => {
         },
         {
           test: /\.css$/,
-          loader: 'style-loader!css-loader',
+          use: ['style-loader','css-loader'],
         },
         {
           test: /\.(png|jpg|jpeg|gif)$/,

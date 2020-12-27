@@ -9,7 +9,7 @@
     "flow-coverage": "flow-coverage-report --threshold 92 -i 'src/**/*.js' -i 'src/**/*.jsx' --collectCoverageFrom=!src/styled/**.* -t html -t json -t text",
     "lint": "eslint --ext .js --ext .jsx src test scripts",
     "start": "./scripts/start",
-    "start:client-dev": "webpack serve --mode development --open --hot",
+    "start:client-dev": "webpack serve --mode development --open 'google-chrome' --hot",
     "server:start": "node ./server/server.js",
     "server:watch": "babel src --ignore src/client --watch --out-dir dist --copy-files --source-maps inline",
     "test": "./scripts/test --env.NODE_ENV=test",

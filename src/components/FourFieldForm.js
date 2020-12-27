@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 
-function FourFieldForm() {
+const FourFieldForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
   const [phone, setPhone] = useState('');
-  function submitForm() {
+
+  const submitForm = () => {
     console.log(`submitting form with values Name: ${name}, Email: ${email}, Company: ${company}, Phone: ${phone}`);
-  }
+  };
+
   return <div>
           <form>
             <label htmlFor='name'> Name:</label>
@@ -21,5 +23,5 @@ function FourFieldForm() {
             <input type='button' value='submit' onClick={submitForm.bind(this)}></input>
           </form>
       </div>;
-}
+};
 export default FourFieldForm;

@@ -25,3 +25,5 @@ dist/*.js
 
 local.log
 tests_output
+#This folder holds the copy of files from local history plugin.
+.history/

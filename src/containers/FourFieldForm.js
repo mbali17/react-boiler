@@ -1,37 +1,47 @@
 import React, { useState } from 'react';
 
 // Components
-import NameField from '../components/name-field';
-import CompanyField from '../components/company-field';
-import PhoneField from '../components/phone-field';
-import EmailField from '../components/email-field';
 import SubmitButton from '../components/submitButton';
+import InputField from '../components/input-field';
 
 // helpers
-import submitForm from '../helpers/helpers';
+// TODO: not sure how to fix this.
+import submitForm from '../helpers/index';
 
 const FourFieldForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
   const [phone, setPhone] = useState('');
-
+  // Unable to pass this inline as attribute value.
   const values = {
     name, email, company, phone,
   };
-  console.log(values);
-  /*
-    TODO:
-      1. Remove label for and wrap the input inside the label. -- done.
-      2. Create separate components for the each field
-      3. extract the submit form into helper.
-  */
+
+  const fields = ['name', 'email', 'company', 'phone'];
+
+  const captureField = (e) => {
+    const fieldId = e.target.id;
+    switch (fieldId) {
+      case 'name':
+        setName(e.target.value);
+        break;
+      case 'email':
+        setEmail(e.target.value);
+        break;
+      case 'company':
+        setCompany(e.target.value);
+        break;
+      case 'phone':
+        setPhone(e.target.value);
+        break;
+      default:
+        console.log('This is the default case');
+    }
+  };
   return <form>
-            <NameField setName = {setName}/>
-            <EmailField setEmail = {setEmail}/>
-            <CompanyField setCompany = {setCompany}/>
-            <PhoneField setPhone = {setPhone}/>
-            <SubmitButton action = {submitForm} values= {values}/>
+            {fields.map((fieldName, key) => <InputField key={key} captureField = {captureField} name = {fieldName}/>)}
+            <SubmitButton action = {submitForm} values= {values} />
           </form>;
 };
 export default FourFieldForm;

@@ -9,19 +9,18 @@ const FourFieldForm = () => {
   const submitForm = () => {
     console.log(`submitting form with values Name: ${name}, Email: ${email}, Company: ${company}, Phone: ${phone}`);
   };
-
-  return <div>
-          <form>
-            <label htmlFor='name'> Name:</label>
-            <input type='text' name='name' id='name'onChange={(e) => setName(e.target.value)}/><br/>
-            <label htmlFor='email'> E-mail:</label>
-            <input type='text' name='email' id='email'onChange={(e) => setEmail(e.target.value)}/><br/>
-            <label htmlFor='company'> Company:</label>
-            <input type='text' name='company' id='company'onChange={(e) => setCompany(e.target.value)}/><br/>
-            <label htmlFor='phone'> Phone:</label>
-            <input type='text' name='phone' id='phone'onChange={(e) => setPhone(e.target.value)}/><br/>
+  /*
+    TODO:
+      1. Remove label for and wrap the input inside the label.
+      2. Create separate components for the each field
+      3. extract the submit form into helper.
+  */
+  return <form>
+            <label> Name: <input type='text' name='name' id='name' onChange={(e) => setName(e.target.value)}/> </label><br/>
+            <label> E-mail: <input type='text' name='email' id='email' onChange={(e) => setEmail(e.target.value)}/> </label><br/>
+            <label> Company: <input type='text' name='company' id='company' onChange={(e) => setCompany(e.target.value)}/> </label><br/>
+            <label > Phone: <input type='text' name='phone' id='phone'onChange={(e) => setPhone(e.target.value)}/> </label> <br/>
             <input type='button' value='submit' onClick={submitForm.bind(this)}></input>
           </form>
-      </div>;
 };
 export default FourFieldForm;

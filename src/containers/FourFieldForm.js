@@ -5,8 +5,7 @@ import SubmitButton from '../components/submitButton';
 import InputField from '../components/input-field';
 
 // helpers
-// TODO: not sure how to fix this.
-import { submitForm, captureField } from '../helpers/index';
+import { submitForm, captureField } from '../helpers';
 
 const FourFieldForm = () => {
   const [name, setName] = useState('');

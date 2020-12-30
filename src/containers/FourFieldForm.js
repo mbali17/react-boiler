@@ -5,6 +5,7 @@ import SubmitButton from '../components/submitButton';
 import InputField from '../components/input-field';
 
 // helpers
+// If the name of the file is index.js , we can skip the index.js as this is the default name used if the name is passed.
 import { submitForm, captureField } from '../helpers';
 
 const FourFieldForm = () => {

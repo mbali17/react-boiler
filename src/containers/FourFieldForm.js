@@ -6,13 +6,17 @@ import InputField from '../components/input-field';
 
 // helpers
 // TODO: not sure how to fix this.
-import submitForm from '../helpers/index';
+import { submitForm, captureField } from '../helpers/index';
 
 const FourFieldForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
   const [phone, setPhone] = useState('');
+
+  const triggers = {
+    setName, setEmail, setCompany, setPhone,
+  };
   // Unable to pass this inline as attribute value.
   const values = {
     name, email, company, phone,
@@ -20,27 +24,8 @@ const FourFieldForm = () => {
 
   const fields = ['name', 'email', 'company', 'phone'];
 
-  const captureField = (e) => {
-    const fieldId = e.target.id;
-    switch (fieldId) {
-      case 'name':
-        setName(e.target.value);
-        break;
-      case 'email':
-        setEmail(e.target.value);
-        break;
-      case 'company':
-        setCompany(e.target.value);
-        break;
-      case 'phone':
-        setPhone(e.target.value);
-        break;
-      default:
-        console.log('This is the default case');
-    }
-  };
   return <form>
-            {fields.map((fieldName, key) => <InputField key={key} captureField = {captureField} name = {fieldName}/>)}
+            {fields.map((fieldName, key) => <InputField key={key} captureField = {captureField} name = {fieldName} triggers= {triggers}/>)}
             <SubmitButton action = {submitForm} values= {values} />
           </form>;
 };

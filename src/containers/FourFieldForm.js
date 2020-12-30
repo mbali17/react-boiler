@@ -1,4 +1,8 @@
+// @flow
 import React, { useState } from 'react';
+
+// types
+import type { Element } from 'react';
 
 // Components
 import SubmitButton from '../components/submitButton';
@@ -8,7 +12,7 @@ import InputField from '../components/input-field';
 // If the name of the file is index.js , we can skip the index.js as this is the default name used if the name is passed.
 import { submitForm, captureField } from '../helpers';
 
-const FourFieldForm = () => {
+const FourFieldForm = (): Element<*> => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');

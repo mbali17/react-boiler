@@ -1,5 +1,9 @@
 // @flow
-export const captureField = (e: { target: { id: string, value: string}}, triggers: { setName: Function, setEmail: Function, setCompany: Function, setPhone: Function}) =>{
+
+import type {
+  PreventDefaultFunction, Values, Triggers, eventTargetIdValue } from '../lib/type';
+
+export const captureField = (e: eventTargetIdValue, triggers: Triggers) =>{
   const { id, value } = e.target;
   switch (id) {
     case 'name':
@@ -19,7 +23,7 @@ export const captureField = (e: { target: { id: string, value: string}}, trigger
   }
 };
 
-export const submitForm = (e: { preventDefault: Function }, values: { name: string, email: string, company: string, phone: string }) => {
+export const submitForm = (e: PreventDefaultFunction, values: Values) => {
   e.preventDefault();
   console.log(`submitting form with values Name: ${values.name}, Email: ${values.email}, Company: ${values.company}, Phone: ${values.phone}`);
 };

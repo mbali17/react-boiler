@@ -1,9 +1,10 @@
 // @flow
 
 import type {
-  PreventDefaultFunction, Values, Triggers, eventTargetIdValue } from '../lib/type';
+  PreventDefaultFunction, Values, Triggers, eventTargetIdValue,
+} from '../lib/type';
 
-export const captureField = (e: eventTargetIdValue, triggers: Triggers) =>{
+export const captureField = (e: eventTargetIdValue, triggers: Triggers) => {
   const { id, value } = e.target;
   switch (id) {
     case 'name':

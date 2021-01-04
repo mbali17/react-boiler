@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+// components
 import TitleValue from '../components/TitleValue';
 import Button from '../components/Button';
 
+// helpers
+import { updateNumber as incrementOrDecrementNumber } from '../helpers';
+
 const Counter = ({ label }) => {
-  const incrementNumber = () => {
-    console.log('incrementing number');
-  };
-
-  const decrementNumber = () => {
-    console.log('decrementing number');
-  };
-
+  const [number, setNumber] = useState(0);
   return <div>
-    <TitleValue label={label}/><br/>
-    <Button label='Increment' action={incrementNumber}/>
+    <TitleValue label={label} initialValue = { number }/><br/>
+    <Button
+      label='Increment'
+      action={incrementOrDecrementNumber}
+      updateState = { setNumber }
+      prevNumber = { number }
+      isIncrement = { true }/>
     {/* Adding empty span's to create space between the buttons. */}
     <span></span> <span></span>
-    <Button label='Decrement' action={decrementNumber}/>
+    <Button
+      label='Decrement'
+      action={incrementOrDecrementNumber}
+      updateState = { setNumber }
+      prevNumber = {number}
+      isIncrement = { false }/>
   </div>;
 };
 

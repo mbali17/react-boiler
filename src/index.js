@@ -7,7 +7,7 @@ const isExperimentalApp = true;
 
 //
 if (isExperimentalApp) {
-  ReactDOM.render(<Counter label= 'Age' initialValue= '0'/>, document.getElementById('root'));
+  ReactDOM.render(<Counter label= 'Age' />, document.getElementById('root'));
 } else {
   ReactDOM.render(<FourFieldForm/>, document.getElementById('root'));
 }

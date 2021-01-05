@@ -24,9 +24,4 @@ export function submitForm(e: { preventDefault: Function }, values: { name: stri
   console.log(`submitting form with values Name: ${values.name}, Email: ${values.email}, Company: ${values.company}, Phone: ${values.phone}`);
 }
 
-export const updateNumber = (number: number, updateState: Function, isIncrement: boolean) => {
-  const prevAge = number;
-  updateState(isIncrement ? () => prevAge + 1 : () => prevAge - 1);
-};
-
 export default submitForm;

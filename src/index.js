@@ -13,8 +13,5 @@ import FourFieldForm from './containers/FourFieldForm';
 const counterStore = createStore(reducer);
 // FLag to control which app get's rendered.
 const isExperimentalApp = true;
-if (isExperimentalApp) {
-  ReactDOM.render(<Provider store= {counterStore}> <Counter label= 'Age' /> </Provider>, document.getElementById('root'));
-} else {
-  ReactDOM.render(<FourFieldForm/>, document.getElementById('root'));
-}
+const component = isExperimentalApp ? ReactDOM.render(<Provider store= {counterStore}> <Counter label= 'Age' /> </Provider>, document.getElementById('root')) : ReactDOM.render(<FourFieldForm/>, document.getElementById('root'));
+console.log(component);

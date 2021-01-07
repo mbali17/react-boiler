@@ -8,9 +8,8 @@ export type Triggers= {
 }
 
 export type InputFieldParams = {
-    captureField: Function,
-    fieldName: string,
-    triggers: Triggers
+  onCaptureInput: Function,
+  fieldName: string,
 }
 
 export type Values = {
@@ -21,9 +20,9 @@ export type Values = {
 }
 
 export type event = {
-    preventDefault: Function,
-    target: {
-      id: string,
-      value: string
-    }
+  preventDefault: Function,
+  target: {
+    id: string,
+    value: string
   }
+}

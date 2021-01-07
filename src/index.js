@@ -24,4 +24,5 @@ ReactDOM.render(
   <Provider store = { store }>
     <FourFieldForm/>
   </Provider>,
-  document.getElementById('root'));
+  document.getElementById('root'),
+);

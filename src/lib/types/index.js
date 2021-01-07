@@ -20,11 +20,8 @@ export type Values = {
   phone: string
 }
 
-export type PreventDefaultFunction = {
-  preventDefault: Function
-}
-
-export type eventTargetIdValue = {
+export type event = {
+    preventDefault: Function,
     target: {
       id: string,
       value: string

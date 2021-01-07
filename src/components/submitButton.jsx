@@ -3,7 +3,7 @@ import React from 'react';
 
 // types
 import type { Element } from 'react';
-import type { Values, event } from '../lib/types';
+import type { event, Values } from '../lib/types';
 
 const SubmitButton = ({ action, values }: { action: Function, values: Values}): Element<*> => <button onClick={(e: event) => action(e, values)}>Submit</button>;
 

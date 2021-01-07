@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 // component
 import Input from '../components/input-field';
 // action TODO: Rename this  to be captureField once refactorring is done.

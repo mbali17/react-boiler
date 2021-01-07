@@ -6,7 +6,7 @@ import type { Element } from 'react';
 
 // Components
 import SubmitButton from '../components/submitButton';
-import InputField from '../components/input-field';
+import InputField from './input-field';
 
 // helpers
 // If the name of the file is index.js , we can skip the index.js as this is the default name used if the name is passed.
@@ -29,7 +29,7 @@ const FourFieldForm = (): Element<*> => {
   const fields = ['name', 'email', 'company', 'phone'];
 
   return <form>
-            {fields.map((fieldName, key) => <InputField key={key} captureField = {captureField} name = {fieldName} triggers= {triggers}/>)}
+            {fields.map((fieldName, key) => <InputField key={key} captureField = {captureField} fieldName = {fieldName} triggers= {triggers}/>)}
             <SubmitButton action = {submitForm} values= {values} />
           </form>;
 };

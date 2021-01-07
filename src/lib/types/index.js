@@ -9,7 +9,7 @@ export type Triggers= {
 
 export type InputFieldParams = {
     captureField: Function,
-    name: string,
+    fieldName: string,
     triggers: Triggers
 }
 

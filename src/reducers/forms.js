@@ -1,7 +1,5 @@
 export const defaultState = {
-  values: {
-
-  },
+  values: {},
 };
 
 const formState = (state = defaultState, action) => {

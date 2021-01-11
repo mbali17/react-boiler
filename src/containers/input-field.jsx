@@ -7,8 +7,9 @@ import captureFieldAction from '../lib/actions';
 
 class InputField extends Component {
   render() {
-    const { fieldName, onCaptureInput } = this.props;
-    return <Input onCaptureInput = {onCaptureInput} fieldName = {fieldName}/>;
+    const { fieldName, onCaptureInput, values } = this.props;
+    const inputValue = values[fieldName];
+    return <Input onCaptureInput={onCaptureInput} fieldName={fieldName} inputValue={inputValue} />;
   }
 }
 

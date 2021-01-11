@@ -10,6 +10,7 @@ export type Triggers= {
 export type InputFieldParams = {
   onCaptureInput: Function,
   fieldName: string,
+  inputValue: string,
 }
 
 export type Values = {

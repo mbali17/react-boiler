@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test app.js Test core app render 1`] = `
+<form>
+  <Connect(InputField)
+    fieldName="name"
+    key="0"
+  />
+  <Connect(InputField)
+    fieldName="email"
+    key="1"
+  />
+  <Connect(InputField)
+    fieldName="company"
+    key="2"
+  />
+  <Connect(InputField)
+    fieldName="phone"
+    key="3"
+  />
+  <Connect(SubmitButton) />
+</form>
+`;

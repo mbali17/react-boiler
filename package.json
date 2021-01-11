@@ -22,7 +22,12 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "collectCoverageFrom": [],
+    "collectCoverageFrom": [
+      "src/helpers/**.*",
+      "src/containers/**.*",
+      "src/components/**.*",
+      "src/reducers/**.*"
+    ],
     "coverageThreshold": {
       "global": {
         "statements": 0,

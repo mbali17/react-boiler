@@ -9,7 +9,7 @@ import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 // components
-import FourFieldForm from './containers/FourFieldForm';
+import FourFieldForm from './containers/app';
 
 // Reducer
 import reducer from './reducers';

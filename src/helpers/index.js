@@ -1,10 +1,10 @@
 // @flow
 
 import type {
-  Values, Triggers, InputEvent,
-} from '../lib/type';
+  Values, Triggers, event,
+} from '../lib/types';
 
-export const captureField = (e: InputEvent, triggers: Triggers) => {
+export const captureField = (e: event, triggers: Triggers) => {
   const { id, value } = e.target;
   switch (id) {
     case 'name':
@@ -24,7 +24,7 @@ export const captureField = (e: InputEvent, triggers: Triggers) => {
   }
 };
 
-export const submitForm = (e: InputEvent, values: Values) => {
+export const submitForm = (e: event, values: Values) => {
   e.preventDefault();
   console.log(`submitting form with values Name: ${values.name}, Email: ${values.email}, Company: ${values.company}, Phone: ${values.phone}`);
 };

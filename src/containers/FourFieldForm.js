@@ -1,36 +1,18 @@
 // @flow
-import React, { useState } from 'react';
+import React from 'react';
 
 // types
 import type { Element } from 'react';
 
 // Components
-import SubmitButton from '../components/submitButton';
-import InputField from '../components/input-field';
-
-// helpers
-// If the name of the file is index.js , we can skip the index.js as this is the default name used if the name is passed.
-import { submitForm, captureField } from '../helpers';
+import SubmitButton from './submitButton';
+import InputField from './input-field';
 
 const FourFieldForm = (): Element<*> => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [company, setCompany] = useState('');
-  const [phone, setPhone] = useState('');
-
-  const triggers = {
-    setName, setEmail, setCompany, setPhone,
-  };
-  // Unable to pass this inline as attribute value.
-  const values = {
-    name, email, company, phone,
-  };
-
   const fields = ['name', 'email', 'company', 'phone'];
-
   return <form>
-            {fields.map((fieldName, key) => <InputField key={key} captureField = {captureField} name = {fieldName} triggers= {triggers}/>)}
-            <SubmitButton action = {submitForm} values= {values} />
+            {fields.map((fieldName, key) => <InputField key={key} fieldName = {fieldName}/>)}
+            <SubmitButton />
           </form>;
 };
 export default FourFieldForm;
